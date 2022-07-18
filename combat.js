@@ -29,19 +29,19 @@ let scalingFactor = main_canvas.width / 240;
 
 //loading the background
 const battle_main_background = new Image();
-battle_main_background.src = "images/battle_backgrounds.png";
+battle_main_background.src = "img/battle_backgrounds.png";
 const battle_ui = new Image();
 const pokemon_sprite_sheet = new Image();
 //choosing the correct background
 battle_main_background.onload = function() {
 	main_ctx.drawImage(battle_main_background, bg_x, bg_y, 240, 112, 0, 0, main_canvas.width, main_canvas.height * 7 / 10);
 
-	pokemon_sprite_sheet.src = "images/pokemon_sprites.png";
+	pokemon_sprite_sheet.src = "img/battle_pokemons.png";
 	pokemon_sprite_sheet.onload = function() {
 		draw_player_pokemon();
 		draw_enemy_pokemon();
 		//TODO: change this to the correct pokemon
-		battle_ui.src = "images/battle_ui.png";
+		battle_ui.src = "img/battle_ui.png";
 		battle_ui.onload = function () {
 			main_ctx.drawImage(battle_ui, 297, 56, 240, 48, 0, main_canvas.height * 7 / 10, main_canvas.width, main_canvas.height * 3 / 10);
 			main_ctx.drawImage(battle_ui, 3, 3, 100, 30, 13 * scalingFactor, 16 * scalingFactor, 100 * scalingFactor, 30 * scalingFactor);
