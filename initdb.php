@@ -101,13 +101,49 @@ $queries = array(
 	$select = $conn->prepare("SELECT COUNT(1) AS count FROM trainers WHERE name = ?;");
 	$select->bind_param("s", $name);
 	foreach ($arr["trainers"] as $trainer) {
+		$name = $trainer["name"];
+		$sprite = $trainer["sprite"];
+		$posX = $trainer["posX"];
+		$posY = $trainer["posY"];
+		$facing = $trainer["facing"];
 		$select->execute();
 		$result = $select->get_result(); // get the mysqli result
 		$exists = $result->fetch_assoc();
-		if ($exists == 1) {
-			
+		if ($exists["count"] == 0) {
+			echo("inserting trainer<br>");
+			$stmt->execute();
+		} else {
+			echo("trainer exists<br>");
 		}
-		echo($user['count']);
+	}
+
+
+	$file = 'json/moves.json';
+	$data = file_get_contents($file);
+	$arr = json_decode($data, true);
+	$stmt = $conn->prepare("INSERT INTO moves (id, MoveName, MoveType, PowerPoints, MovePower, Accuracy, Inflicts, InflictChance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt->bind_param("issiiisi", $id, $MoveName, $MoveType, $PowerPoints, $MovePower, $Accuracy, $Inflicts, $InflictChance);
+	$select = $conn->prepare("SELECT COUNT(1) AS count FROM moves WHERE id = ?;");
+	$select->bind_param("i", $id);
+	foreach ($arr["moves"] as $move) {
+		$id = $move["id"];
+		$MoveName = $move["MoveName"];
+		$MoveType = $move["MoveType"];
+		$PowerPoints = $move["PowerPoints"];
+		$MovePower = $move["MovePower"];
+		$Accuracy = $move["Accuracy"];
+		$Inflicts = $move["Inflicts"];
+		$InflictChance = $move["InflictChance"];
+
+		$select->execute();
+		$result = $select->get_result(); // get the mysqli result
+		$exists = $result->fetch_assoc();
+		if ($exists["count"] == 0) {
+			echo("inserting move<br>");
+			$stmt->execute();
+		} else {
+			echo("move exists<br>");
+		}
 	}
 
 $conn->close();
