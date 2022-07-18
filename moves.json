@@ -1,0 +1,724 @@
+//(MoveName, MoveStyle, MovePower, PowerPoints, MoveType, MovePriority)
+{ "pokemon": [ 
+    {
+    "id": 0,
+    "MoveName": "Pound",
+    "MoveType": "Normal",
+    "PowerPoints": 35,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 1,
+    "MoveName": "Karate Chop",
+    "MoveType": "Fighting",
+    "PowerPoints": 25,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 2,
+    "MoveName": "Double Slap",
+    "MoveType": "Normal",
+    "PowerPoints": 10,
+    "MovePower": 15,
+    "Accuracy": 85,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 3,
+    "MoveName": "Comet Punch",
+    "MoveType": "Normal",
+    "PowerPoints": 15,
+    "MovePower": 18,
+    "Accuracy": 85,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 4,
+    "MoveName": "Mega Punch",
+    "MoveType": "Normal",
+    "PowerPoints": 20,
+    "MovePower": 80,
+    "Accuracy": 85,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 5,
+    "MoveName": "Pay Day",
+    "MoveType": "Normal",
+    "PowerPoints": 20,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 6,
+    "MoveName": "Fire Punch",
+    "MoveType": "Fire",
+    "PowerPoints": 15,
+    "MovePower": 75,
+    "Accuracy": 100,
+	"Inflicts": "Burn",
+	"InflictChance": 10
+    },
+	{
+    "id": 6,
+    "MoveName": "Ice Punch",
+    "MoveType": "Ice",
+    "PowerPoints": 15,
+    "MovePower": 75,
+    "Accuracy": 100,
+	"Inflicts": "Freeze",
+	"InflictChance": 10
+    },
+	{
+    "id": 7,
+    "MoveName": "Thunder Punch",
+    "MoveType": "Electric",
+    "PowerPoints": 15,
+    "MovePower": 75,
+    "Accuracy": 100,
+	"Inflicts": "Paralysis",
+	"InflictChance": 10
+    },
+	{
+    "id": 8,
+    "MoveName": "Scratch",
+    "MoveType": "Normal",
+    "PowerPoints": 35,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 9,
+    "MoveName": "Vise Grip",
+    "MoveType": "Normal",
+    "PowerPoints": 35,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 10,
+    "MoveName": "Razor Wind",
+    "MoveType": "Normal",
+    "PowerPoints": 10,
+    "MovePower": 80,
+    "Accuracy": 75,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 11,
+    "MoveName": "Cut",
+    "MoveType": "Normal",
+    "PowerPoints": 30,
+    "MovePower": 50,
+    "Accuracy": 95,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 12,
+    "MoveName": "Gust",
+    "MoveType": "Flying",
+    "PowerPoints": 35,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 13,
+    "MoveName": "Wing Attack",
+    "MoveType": "Flying",
+    "PowerPoints": 35,
+    "MovePower": 35,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 14,
+    "MoveName": "Slam",
+    "MoveType": "Normal",
+    "PowerPoints": 20,
+    "MovePower": 80,
+    "Accuracy": 75,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 15,
+    "MoveName": "Vine Whip",
+    "MoveType": "Grass",
+    "PowerPoints": 10,
+    "MovePower": 36,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 16,
+    "MoveName": "Double Kick",
+    "MoveType": "Fighting",
+    "PowerPoints": 30,
+    "MovePower": 60,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 17,
+    "MoveName": "Mega Kick",
+    "MoveType": "Normal",
+    "PowerPoints": 5,
+    "MovePower": 120,
+    "Accuracy": 75,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 18,
+    "MoveName": "Jump Kick",
+    "MoveType": "Fighting",
+    "PowerPoints": 25,
+    "MovePower": 70,
+    "Accuracy": 95,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 19,
+    "MoveName": "Rolling Kick",
+    "MoveType": "Fighting",
+    "PowerPoints": 15,
+    "MovePower": 60,
+    "Accuracy": 85,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 20,
+    "MoveName": "Headbutt",
+    "MoveType": "Normal",
+    "PowerPoints": 15,
+    "MovePower": 70,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 21,
+    "MoveName": "Tackle",
+    "MoveType": "Normal",
+    "PowerPoints": 35,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 22,
+    "MoveName": "Poison Sting",
+    "MoveType": "Poison",
+    "PowerPoints": 35,
+    "MovePower": 15,
+    "Accuracy": 100,
+	"Inflicts": "Poison",
+	"InflictChance": 20
+    },
+	{
+    "id": 23,
+    "MoveName": "Twineedle",
+    "MoveType": "Bug",
+    "PowerPoints": 20,
+    "MovePower": 50,
+    "Accuracy": 100,
+	"Inflicts": "Poison",
+	"InflictChance": 20
+    },
+	{
+    "id": 24,
+    "MoveName": "Pin Missile",
+    "MoveType": "Bug",
+    "PowerPoints": 20,
+    "MovePower": 75,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 25,
+    "MoveName": "Acid",
+    "MoveType": "Poison",
+    "PowerPoints": 30,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 26,
+    "MoveName": "Ember",
+    "MoveType": "Fire",
+    "PowerPoints": 25,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "Burn",
+	"InflictChance": 10
+    },
+	{
+    "id": 27,
+    "MoveName": "Flamethrower",
+    "MoveType": "Fire",
+    "PowerPoints": 15,
+    "MovePower": 95,
+    "Accuracy": 100,
+	"Inflicts": "Burn",
+	"InflictChance": 10
+    },
+	{
+    "id": 28,
+    "MoveName": "Water Gun",
+    "MoveType": "Water",
+    "PowerPoints": 25,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 29,
+    "MoveName": "Hydro Pump",
+    "MoveType": "Water",
+    "PowerPoints": 5,
+    "MovePower": 110,
+    "Accuracy": 80,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 30,
+    "MoveName": "Surf",
+    "MoveType": "Water",
+    "PowerPoints": 15,
+    "MovePower": 90,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 31,
+    "MoveName": "Ice Beam",
+    "MoveType": "Ice",
+    "PowerPoints": 10,
+    "MovePower": 90,
+    "Accuracy": 100,
+	"Inflicts": "Freeze",
+	"InflictChance": 10
+    },
+	{
+    "id": 31,
+    "MoveName": "Blizzard",
+    "MoveType": "Ice",
+    "PowerPoints": 5,
+    "MovePower": 110,
+    "Accuracy": 90,
+	"Inflicts": "Freeze",
+	"InflictChance": 10
+    },
+	{
+    "id": 32,
+    "MoveName": "Psybeam",
+    "MoveType": "Psychic",
+    "PowerPoints": 20,
+    "MovePower": 65,
+    "Accuracy": 100,
+	"Inflicts": "Confused",
+	"InflictChance": 10
+    },
+	{
+    "id": 33,
+    "MoveName": "Bubble Beam",
+    "MoveType": "Water",
+    "PowerPoints": 20,
+    "MovePower": 65,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 34,
+    "MoveName": "Aurora Beam",
+    "MoveType": "Ice",
+    "PowerPoints": 20,
+    "MovePower": 65,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 35,
+    "MoveName": "Hyper Beam",
+    "MoveType": "Normal",
+    "PowerPoints": 5,
+    "MovePower": 150,
+    "Accuracy": 90,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 36,
+    "MoveName": "Peck",
+    "MoveType": "Flying",
+    "PowerPoints": 35,
+    "MovePower": 35,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 37,
+    "MoveName": "Drill Peck",
+    "MoveType": "Flying",
+    "PowerPoints": 20,
+    "MovePower": 80,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 38,
+    "MoveName": "Submission",
+    "MoveType": "Fighting",
+    "PowerPoints": 20,
+    "MovePower": 80,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 38,
+    "MoveName": "Strength",
+    "MoveType": "Normal",
+    "PowerPoints": 15,
+    "MovePower": 80,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 39,
+    "MoveName": "Razor Leaf",
+    "MoveType": "Grass",
+    "PowerPoints": 25,
+    "MovePower": 55,
+    "Accuracy": 95,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 40,
+    "MoveName": "Solar Beam",
+    "MoveType": "Grass",
+    "PowerPoints": 10,
+    "MovePower": 120,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 41,
+    "MoveName": "Dragon Rage",
+    "MoveType": "Dragon",
+    "PowerPoints": 10,
+    "MovePower": 60,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 42,
+    "MoveName": "Thunder Shock",
+    "MoveType": "Electric",
+    "PowerPoints": 30,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "Paralysis",
+	"InflictChance": 10
+    },
+	{
+    "id": 43,
+    "MoveName": "Thunder Wave",
+    "MoveType": "Electric",
+    "PowerPoints": 0,
+    "MovePower": 20,
+    "Accuracy": 100,
+	"Inflicts": "Paralysis",
+	"InflictChance": 100
+    },
+	{
+    "id": 44,
+    "MoveName": "Thunderbolt",
+    "MoveType": "Electric",
+    "PowerPoints": 15,
+    "MovePower": 95,
+    "Accuracy": 100,
+	"Inflicts": "Paralysis",
+	"InflictChance": 10
+    },
+	{
+    "id": 45,
+    "MoveName": "Rock Throw",
+    "MoveType": "Rock",
+    "PowerPoints": 15,
+    "MovePower": 50,
+    "Accuracy": 65,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 46,
+    "MoveName": "Earthquake",
+    "MoveType": "Ground",
+    "PowerPoints": 10,
+    "MovePower": 100,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 47,
+    "MoveName": "Dig",
+    "MoveType": "Ground",
+    "PowerPoints": 10,
+    "MovePower": 100,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 48,
+    "MoveName": "Confusion",
+    "MoveType": "Psychic",
+    "PowerPoints": 25,
+    "MovePower": 50,
+    "Accuracy": 100,
+	"Inflicts": "Confused",
+	"InflictChance": 10
+    },
+	{
+    "id": 49,
+    "MoveName": "Psychic",
+    "MoveType": "Psychic",
+    "PowerPoints": 10,
+    "MovePower": 90,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 50,
+    "MoveName": "Quick Attack",
+    "MoveType": "Normal",
+    "PowerPoints": 30,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 51,
+    "MoveName": "Egg Bomb",
+    "MoveType": "Normal",
+    "PowerPoints": 10,
+    "MovePower": 100,
+    "Accuracy": 75,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 52,
+    "MoveName": "Lick",
+    "MoveType": "Ghost",
+    "PowerPoints": 30,
+    "MovePower": 20,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 53,
+    "MoveName": "Smog",
+    "MoveType": "Poison",
+    "PowerPoints": 20,
+    "MovePower": 30,
+    "Accuracy": 70,
+	"Inflicts": "Poison",
+	"InflictChance": 30
+    },
+	{
+    "id": 54,
+    "MoveName": "Sludge",
+    "MoveType": "Poison",
+    "PowerPoints": 20,
+    "MovePower": 65,
+    "Accuracy": 100,
+	"Inflicts": "Poison",
+	"InflictChance": 30
+    },
+	{
+    "id": 55,
+    "MoveName": "Bone Club",
+    "MoveType": "Ground",
+    "PowerPoints": 20,
+    "MovePower": 65,
+    "Accuracy": 85,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 56,
+    "MoveName": "Fire Blast",
+    "MoveType": "Fire",
+    "PowerPoints": 5,
+    "MovePower": 110,
+    "Accuracy": 85,
+	"Inflicts": "Burn",
+	"InflictChance": 30
+    },
+	{
+    "id": 57,
+    "MoveName": "Waterfall",
+    "MoveType": "Water",
+    "PowerPoints": 15,
+    "MovePower": 80,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 58,
+    "MoveName": "Swift",
+    "MoveType": "Normal",
+    "PowerPoints": 15,
+    "MovePower": 20,
+    "Accuracy": 200,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 59,
+    "MoveName": "High Jump Kick",
+    "MoveType": "Fighting",
+    "PowerPoints": 10,
+    "MovePower": 130,
+    "Accuracy": 90,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 60,
+    "MoveName": "Sky Attack",
+    "MoveType": "Flying",
+    "PowerPoints": 5,
+    "MovePower": 140,
+    "Accuracy": 85,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 61,
+    "MoveName": "Bubble",
+    "MoveType": "Water",
+    "PowerPoints": 30,
+    "MovePower": 40,
+    "Accuracy": 100,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 62,
+    "MoveName": "Hyper Fang",
+    "MoveType": "Normal",
+    "PowerPoints": 15,
+    "MovePower": 80,
+    "Accuracy": 90,
+	"Inflicts": "None",
+	"InflictChance": 0
+    },
+	{
+    "id": 63,
+    "MoveName": "Poison Powder",
+    "MoveType": "Poison",
+    "PowerPoints": 35,
+    "MovePower": 0,
+    "Accuracy": 75,
+	"Inflicts": "Poison",
+	"InflictChance": 100
+	},
+	{
+    "id": 64,
+    "MoveName": "Sleep Powder",
+    "MoveType": "Grass,
+    "PowerPoints": 15,
+    "MovePower": 0,
+    "Accuracy": 75,
+	"Inflicts": "Sleeping",
+	"InflictChance": 100
+	},
+	{
+    "id": 65,
+    "MoveName": "Stun Spore",
+    "MoveType": "Grass",
+    "PowerPoints": 30,
+    "MovePower": 0,
+    "Accuracy": 75,
+	"Inflicts": "Paralysis",
+	"InflictChance": 75
+	},
+	{
+    "id": 66,
+    "MoveName": "Thunder",
+    "MoveType": "Electric",
+    "PowerPoints": 10,
+    "MovePower": 110,
+    "Accuracy": 70,
+	"Inflicts": "Paralysis",
+	"InflictChance": 10
+	},
+	{
+    "id": 67,
+    "MoveName": "Hypnosis",
+    "MoveType": "Psychic",
+    "PowerPoints": 20,
+    "MovePower": 0,
+    "Accuracy": 60,
+	"Inflicts": "Confused",
+	"InflictChance": 100
+	},
+	{
+    "id": 68,
+    "MoveName": "Poison Gas",
+    "MoveType": "Poison",
+    "PowerPoints": 15,
+    "MovePower": 0,
+    "Accuracy": 55,
+	"Inflicts": "Poison",
+	"InflictChance": 100
+    }
+    ]
+}
