@@ -10,16 +10,20 @@
 		$file = 'assets/map.tmj';
 		$data = file_get_contents($file);
 		$arr = json_decode($data, true);
-		for ($i = 0; $i < 30; $i++) {
-			for ($j = 0; $j < 20; $j++) {
+		for ($i = 0; $i < 20; $i++) {
+			for ($j = 0; $j < 30; $j++) {
 				$_SESSION['map'][$i][$j] = 0;
 			}
 		}
 		foreach ($arr["layers"] as $value) {
-			if ($value['name'] == "Objects") {
+			if ($value['name'] == "Objects" or $value['name'] == "Hitboxes") {
 				foreach ($value['objects'] as $obj) {
-					$_SESSION['map'][$obj['x'] / 16][$obj['y'] / 16] = 1;
-					
+					for ($i = 0; $i < $obj['height'] / 16; $i++) {
+						$_SESSION['map'][($obj['y'] / 16) + $i][$obj['x'] / 16] = 1;
+					}
+					for ($i = 0; $i < $obj['width'] / 16; $i++) {
+						$_SESSION['map'][($obj['y'] / 16) + $i][($obj['x'] / 16) + $i] = 1;
+					}
 				}
 			}
 		}
@@ -32,15 +36,15 @@
 		if ($dir == 0) { // UP
 			if ($y - 1 <= 0) {
 				print(0);
-			} else if ($_SESSION['map'][$x][$y - 1] == 1) {
+			} else if (($_SESSION['map'][$y - 1][$x] == 1) or ($_SESSION['map'][$y - 1][$x + 1] == 1)) {
 				print(0);
 			} else {
 				print(1);
 			}
 		} else if ($dir == 1) { // DOWN
-			if ($y + 1 >= 19) {
+			if ($y + 1 > 19) {
 				print(0);
-			} else if ($_SESSION['map'][$x][$y + 1] == 1) {
+			} else if (($_SESSION['map'][$y + 1][$x] == 1) or ($_SESSION['map'][$y + 1][$x + 1] == 1)) {
 				print(0);
 			} else {
 				print(1);
@@ -48,15 +52,15 @@
 		} else if ($dir == 2) { // LEFT
 			if ($x - 1 <= 0) {
 				print(0);
-			} else if ($_SESSION['map'][$x - 1][$y] == 1) {
+			} else if ($_SESSION['map'][$y][$x - 1] == 1) {
 				print(0);
 			} else {
 				print(1);
 			}
 		} else if ($dir == 3) { // RIGHT
-			if ($x + 1 >= 29) {
+			if ($x + 1 > 29) {
 				print(0);
-			} else if ($_SESSION['map'][$x + 1][$y] == 1) {
+			} else if ($_SESSION['map'][$y][$x + 1] == 1) {
 				print(0);
 			} else {
 				print(1);
@@ -66,6 +70,16 @@
 		}
 		//print($_REQUEST['checkMovement']['direction']);
 		// print($_REQUEST['checkMovement']["x"].' '.$_REQUEST['checkMovement']["y"]);
+	} else if (isset($_REQUEST['printArray'])) {
+		for ($i = 0; $i < 20; $i++) {
+			for ($j = 0; $j < 30; $j++) {
+				if ($i == $_REQUEST['printArray']['y'] and $j == $_REQUEST['printArray']['x']) {
+					print("2");
+				} else {
+					print($_SESSION['map'][$i][$j]);
+				}
+			}
+			print("<br>");
+		}
 	}
-
 ?>

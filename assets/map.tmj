@@ -3,6 +3,221 @@
  "infinite":false,
  "layers":[
         {
+         "draworder":"topdown",
+         "id":8,
+         "name":"Hitboxes",
+         "objects":[
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":234,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":176,
+                 "y":224
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":235,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":176,
+                 "y":240
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":236,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":176,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":237,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":192,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":238,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":239,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":240,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":240,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":241,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":242,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":240
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":243,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":224
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":244,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":320,
+                 "y":144
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":245,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":304,
+                 "y":128
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":246,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":320,
+                 "y":128
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":247,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":336,
+                 "y":128
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":248,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":336,
+                 "y":112
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":249,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":320,
+                 "y":112
+                }, 
+                {
+                 "class":"",
+                 "gid":3104,
+                 "height":16,
+                 "id":250,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":304,
+                 "y":112
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "data":[8061, 7994, 7995, 7996, 7997, 7998, 7994, 7995, 7996, 7997, 7994, 7995, 7996, 7997, 7994, 7995, 7996, 7997, 7994, 7995, 7996, 7997, 7994, 7995, 7996, 7994, 7995, 7996, 7997, 7998,
             8085, 8018, 8019, 8020, 8021, 8022, 8018, 8019, 8020, 8021, 8018, 8019, 8020, 8021, 8018, 8019, 8020, 8021, 8018, 8019, 8020, 8021, 8018, 8019, 8020, 8018, 8019, 8020, 8021, 8022,
             8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8164, 8042, 8091, 8164, 8164, 8164, 8164, 8164, 8164,
@@ -70,216 +285,197 @@
          "name":"Objects",
          "objects":[
                 {
-                 "id":48,
-                 "template":"tombstone.tx",
-                 "x":224,
-                 "y":128
-                }, 
-                {
-                 "id":49,
-                 "template":"tombstone.tx",
-                 "x":208,
-                 "y":144
-                }, 
-                {
-                 "id":50,
-                 "template":"tombstone.tx",
-                 "x":208,
-                 "y":160
-                }, 
-                {
-                 "id":51,
-                 "template":"tombstone.tx",
-                 "x":208,
-                 "y":176
-                }, 
-                {
-                 "id":52,
-                 "template":"tombstone.tx",
-                 "x":192,
-                 "y":176
-                }, 
-                {
-                 "id":53,
-                 "template":"tombstone.tx",
-                 "x":208,
-                 "y":128
-                }, 
-                {
-                 "id":54,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":96
-                }, 
-                {
-                 "id":55,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":80
-                }, 
-                {
-                 "id":56,
-                 "template":"tombstone.tx",
-                 "x":80,
-                 "y":80
-                }, 
-                {
-                 "id":57,
-                 "template":"tombstone.tx",
-                 "x":80,
-                 "y":96
-                }, 
-                {
-                 "id":58,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":192
-                }, 
-                {
-                 "id":59,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":208
-                }, 
-                {
-                 "id":60,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":224
-                }, 
-                {
-                 "id":61,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":288
-                }, 
-                {
-                 "id":62,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":304
-                }, 
-                {
-                 "id":63,
-                 "template":"tombstone.tx",
-                 "x":96,
-                 "y":320
-                }, 
-                {
-                 "id":64,
-                 "template":"tombstone.tx",
-                 "x":448,
-                 "y":272
-                }, 
-                {
-                 "id":65,
-                 "template":"tombstone.tx",
-                 "x":464,
-                 "y":272
-                }, 
-                {
-                 "id":66,
-                 "template":"tombstone.tx",
-                 "x":432,
-                 "y":256
-                }, 
-                {
-                 "id":67,
-                 "template":"tombstone.tx",
-                 "x":432,
-                 "y":240
-                }, 
-                {
-                 "id":68,
-                 "template":"tombstone.tx",
-                 "x":432,
-                 "y":224
-                }, 
-                {
-                 "id":69,
-                 "template":"tombstone.tx",
-                 "x":432,
-                 "y":208
-                }, 
-                {
-                 "id":70,
-                 "template":"tombstone.tx",
-                 "x":432,
-                 "y":192
-                }, 
-                {
-                 "id":71,
-                 "template":"tombstone.tx",
-                 "x":416,
-                 "y":192
-                }, 
-                {
-                 "id":72,
-                 "template":"tombstone.tx",
-                 "x":416,
-                 "y":176
-                }, 
-                {
-                 "id":73,
-                 "template":"tombstone.tx",
-                 "x":400,
-                 "y":176
-                }, 
-                {
-                 "id":74,
-                 "template":"tombstone.tx",
-                 "x":400,
-                 "y":160
-                }, 
-                {
-                 "id":75,
-                 "template":"tombstone.tx",
-                 "x":384,
-                 "y":160
-                }, 
-                {
-                 "id":76,
-                 "template":"tombstone.tx",
-                 "x":384,
-                 "y":144
-                }, 
-                {
-                 "id":77,
-                 "template":"tombstone.tx",
-                 "x":384,
-                 "y":128
-                },
-            
-                {
-                 "id":78,
-                 "template":"tombstone.tx",
-                 "x":400,
-                 "y":128
-                }, 
-                {
-                 "id":80,
-                 "template":"pillar.tx",
-                 "x":96,
-                 "y":176
-                }, 
-                {
-                 "id":81,
-                 "template":"pillar.tx",
-                 "x":96,
-                 "y":272
-                }, 
-                {
-                 "id":84,
-                 "template":"hitbox16.tx",
-                 "x":304,
-                 "y":256
-                }, 
-                {
-                 "class":"",
-                 "gid":3592,
+                 "class":"tombstone",
+                 "gid":8230,
                  "height":16,
-                 "id":164,
+                 "id":48,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":112
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":49,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":128
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":50,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":144
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":51,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":160
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":52,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":192,
+                 "y":160
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":53,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":112
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":54,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":80
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":55,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":64
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":56,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":64
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":57,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":80
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":58,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
                  "rotation":0,
                  "visible":true,
                  "width":16,
@@ -287,287 +483,942 @@
                  "y":176
                 }, 
                 {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":59,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":192
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":60,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":208
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":61,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":272
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":62,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":288
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":63,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":304
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":64,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":448,
+                 "y":256
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":65,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":464,
+                 "y":256
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":66,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":432,
+                 "y":240
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":67,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":432,
+                 "y":224
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":68,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":432,
+                 "y":208
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":69,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":432,
+                 "y":192
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":70,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":432,
+                 "y":176
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":71,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":416,
+                 "y":176
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":72,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":416,
+                 "y":160
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":73,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":400,
+                 "y":160
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":74,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":400,
+                 "y":144
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":75,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":384,
+                 "y":144
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":76,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":384,
+                 "y":128
+                }, 
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":77,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":384,
+                 "y":112
+                },
+            
+                {
+                 "class":"tombstone",
+                 "gid":8230,
+                 "height":16,
+                 "id":78,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Solid",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":400,
+                 "y":112
+                }, 
+                {
+                 "class":"",
+                 "gid":3833,
+                 "height":16,
+                 "id":84,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":304,
+                 "y":256
+                }, 
+                {
+                 "class":"",
+                 "gid":22868,
+                 "height":48,
                  "id":166,
-                 "template":"pillar.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":96,
                  "y":128
                 }, 
                 {
+                 "class":"",
+                 "gid":22868,
+                 "height":48,
                  "id":167,
-                 "template":"pillar.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":96,
                  "y":224
                 }, 
                 {
+                 "class":"",
+                 "gid":22868,
+                 "height":48,
                  "id":168,
-                 "template":"pillar.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":352,
                  "y":32
                 }, 
                 {
+                 "class":"",
+                 "gid":22868,
+                 "height":48,
                  "id":171,
-                 "template":"pillar.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":224,
                  "y":64
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":172,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":144,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":173,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":160,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":174,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":272,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":175,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":288,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":176,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":304,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":177,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":320,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":178,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":336,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":179,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":352,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":180,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":368,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":181,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":384,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":182,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":400,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":183,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":416,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":4895,
+                 "height":16,
                  "id":184,
-                 "template":"fence.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":432,
                  "y":256
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":185,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":0,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":186,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":16,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":187,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":32,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":188,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":48,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":189,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":64,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":190,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":80,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":191,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":96,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":192,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":112,
-                 "y":32
+                 "y":0
+                }, 
+                {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
+                 "id":193,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":0
+                }, 
+                {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
+                 "id":194,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":0
+                }, 
+                {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
+                 "id":195,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":176,
+                 "y":0
                 },
             
                 {
-                 "id":193,
-                 "template":"wall.tx",
-                 "x":128,
-                 "y":32
-                }, 
-                {
-                 "id":194,
-                 "template":"wall.tx",
-                 "x":144,
-                 "y":32
-                }, 
-                {
-                 "id":195,
-                 "template":"wall.tx",
-                 "x":176,
-                 "y":32
-                }, 
-                {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":196,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":160,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":197,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":192,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":198,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":208,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":199,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":224,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":200,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":240,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":201,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":256,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":202,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":272,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":203,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":288,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":204,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":304,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":205,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":320,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":206,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":336,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":207,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":352,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":208,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":368,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":209,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":384,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":210,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":400,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":211,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":416,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":212,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":432,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":213,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":448,
-                 "y":32
+                 "y":0
                 }, 
                 {
+                 "class":"",
+                 "gid":23288,
+                 "height":32,
                  "id":215,
-                 "template":"wall.tx",
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
                  "x":464,
-                 "y":32
+                 "y":0
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -575,8 +1426,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":8,
- "nextobjectid":216,
+ "nextlayerid":9,
+ "nextobjectid":251,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.0",
@@ -584,31 +1435,31 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"tileset-advance.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/tileset-advance.tsx"
         }, 
         {
          "firstgid":7985,
-         "source":"Game Boy Advance - Pokemon FireRed LeafGreen - Lavender Town.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/Game Boy Advance - Pokemon FireRed LeafGreen - Lavender Town.tsx"
         }, 
         {
          "firstgid":9425,
-         "source":"tileset-hoenn_ows_remake.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/tileset-hoenn_ows_remake.tsx"
         }, 
         {
          "firstgid":11275,
-         "source":"f14818.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/f14818.tsx"
         }, 
         {
          "firstgid":22411,
-         "source":"people.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/people.tsx"
         }, 
         {
          "firstgid":22861,
-         "source":"3.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/3.tsx"
         }, 
         {
          "firstgid":23279,
-         "source":"4.tsx"
+         "source":"..\/..\/..\/..\/Users\/Glenn\/Desktop\/Tiles\/4.tsx"
         }],
  "tilewidth":16,
  "type":"map",
