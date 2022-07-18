@@ -4,6 +4,10 @@ function Pokemon(x, y) {
 	this.sprite_y = y;
 	this.Health = 100;
 	this.current_health = 100;
+	this.Level = 5;
+	this.Exp = 100;	//max exp
+	this.current_exp = 20;	//current exp
+
 }
 let player_pokemon = new Pokemon(11, 110);	//dummy values
 let enemy_pokemon = new Pokemon(661, 45);		//dummy values
@@ -32,6 +36,7 @@ const battle_main_background = new Image();
 battle_main_background.src = "img/battle_backgrounds.png";
 const battle_ui = new Image();
 const pokemon_sprite_sheet = new Image();
+
 //choosing the correct background
 battle_main_background.onload = function() {
 	main_ctx.drawImage(battle_main_background, bg_x, bg_y, 240, 112, 0, 0, main_canvas.width, main_canvas.height * 7 / 10);
@@ -48,6 +53,19 @@ battle_main_background.onload = function() {
 			main_ctx.drawImage(battle_ui, 3, 44, 104, 37, 126 * scalingFactor, 74 * scalingFactor, 104 * scalingFactor, 37 * scalingFactor);
 		}
 	}
+}
+//function to draw the player's pokemon
+function draw_player_pokemon(){
+	let player_x = 40 * scalingFactor;
+	let player_y = 64 * scalingFactor;
+	main_ctx.drawImage(pokemon_sprite_sheet, player_sprite_x, player_sprite_y, 64, 64, player_x, player_y,  64 * scalingFactor,  64 * scalingFactor);
+}
+//function to draw the enemy's pokemon
+function draw_enemy_pokemon(){
+	let enemy_x = 144 * scalingFactor;
+	let enemy_y = 10 * scalingFactor;
+	main_ctx.drawImage(pokemon_sprite_sheet, enemy_sprite_x, enemy_sprite_y, 64, 64, enemy_x, enemy_y, 64 * scalingFactor,  64 * scalingFactor);
+
 }
 //displaying health of the Pokemon
 function healthBar(){
@@ -71,28 +89,32 @@ function healthBar(){
 	main_ctx.drawImage(battle_ui, depleted_health_bar_x, depleted_health_bar_y, 9, 3, enemy_health_bar_x - enemy_depleted_health_bar_width, enemy_health_bar_y, enemy_depleted_health_bar_width, 3 * scalingFactor);
 	main_ctx.restore();
 }
-//function to draw the player's pokemon
-function draw_player_pokemon(){
-	let player_x = 40 * scalingFactor;
-	let player_y = 64 * scalingFactor;
-	main_ctx.drawImage(pokemon_sprite_sheet, player_sprite_x, player_sprite_y, 64, 64, player_x, player_y,  64 * scalingFactor,  64 * scalingFactor);
-}
-//function to draw the enemy's pokemon
-function draw_enemy_pokemon(){
-	let enemy_x = 144 * scalingFactor;
-	let enemy_y = 10 * scalingFactor;
-	main_ctx.drawImage(pokemon_sprite_sheet, enemy_sprite_x, enemy_sprite_y, 64, 64, enemy_x, enemy_y, 64 * scalingFactor,  64 * scalingFactor);
+//displaying exp of the Pokemon
+function expBar() {
+	let exp_bar_x = 129;
+	let exp_bar_y = 9;
 
+	let player_exp_bar_x = 158 * scalingFactor;
+	let player_exp_bar_y = 107 * scalingFactor;
+
+	//TODO: change this to the real pokemon exp values
+	let player_exp_percent = player_pokemon.current_exp / player_pokemon.Exp;
+	main_ctx.save();
+	if (player_exp_percent === 0) {
+		main_ctx.drawImage(battle_ui, 35, 77, 70, 2, player_exp_bar_x, player_exp_bar_y, 70 * scalingFactor, 2 * scalingFactor);
+	}
+	main_ctx.drawImage(battle_ui, exp_bar_x, exp_bar_y, 7, 2, player_exp_bar_x, player_exp_bar_y, player_exp_percent * 64 * scalingFactor, 2 * scalingFactor);
+	main_ctx.restore();
 }
 
 //TODO: change this so player health changes when it is damaged
 addEventListener("keydown", function (e) {
 	let key = e.key;
 	if (key === "ArrowLeft") {
-		player_pokemon.current_health -= 10;
-	}
-	if (player_pokemon.current_health >= 0) {
-		requestAnimationFrame(healthBar);
+		if (player_pokemon.current_health > 0) {
+			requestAnimationFrame(healthBar);
+			player_pokemon.current_health -= 10;
+		}
 	}
 });
 
@@ -100,9 +122,26 @@ addEventListener("keydown", function (e) {
 addEventListener("keydown", function (e) {
 	let key = e.key;
 	if (key === "ArrowRight") {
-		enemy_pokemon.current_health -= 10;
+		if (enemy_pokemon.current_health > 0) {
+			enemy_pokemon.current_health -= 10;
+			requestAnimationFrame(healthBar);
+		}
 	}
-	if (enemy_pokemon.current_health >= 0) {
-		requestAnimationFrame(healthBar);
+});
+
+//TODO: change this so exp changes when it is gained
+addEventListener("keydown", function (e) {
+	let key = e.key;
+	if (key === "ArrowUp") {
+		if (player_pokemon.current_exp < player_pokemon.Exp) {
+			player_pokemon.current_exp += 10;
+			requestAnimationFrame(expBar);
+		}else{
+			player_pokemon.Level += 1;
+			player_pokemon.Exp = player_pokemon.Level ** 3;
+			player_pokemon.current_exp = 0;
+			requestAnimationFrame(expBar);
+		}
 	}
+	console.log(player_pokemon.current_exp + " " + player_pokemon.Exp);
 });
