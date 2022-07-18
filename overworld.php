@@ -34,7 +34,7 @@
 		$x = $_REQUEST['checkMovement']['x'];
 		$y = $_REQUEST['checkMovement']['y'];
 		if ($dir == 0) { // UP
-			if ($y - 1 <= 0) {
+			if ($y - 1 < 0) {
 				print(0);
 			} else if (($_SESSION['map'][$y - 1][$x] == 1) or ($_SESSION['map'][$y - 1][$x + 1] == 1)) {
 				print(0);
@@ -50,7 +50,7 @@
 				print(1);
 			}
 		} else if ($dir == 2) { // LEFT
-			if ($x - 1 <= 0) {
+			if ($x - 1 < 0) {
 				print(0);
 			} else if ($_SESSION['map'][$y][$x - 1] == 1) {
 				print(0);
