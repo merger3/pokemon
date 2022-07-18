@@ -26,9 +26,10 @@ $queries = array(
 	"CREATE TABLE IF NOT EXISTS trainers (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(30),
-	sprite LONGBLOB,
+	sprite TEXT,
 	posX INT,
-	posY INT
+	posY INT,
+	facing INT
 	)",
 
 	"CREATE TABLE IF NOT EXISTS pokemonDefs (
@@ -89,6 +90,24 @@ $queries = array(
 		  echo "Error creating table: " . $conn->error;
 		}
 		echo "<br>";
+	}
+
+
+	$file = 'json/trainers.json';
+	$data = file_get_contents($file);
+	$arr = json_decode($data, true);
+	$stmt = $conn->prepare("INSERT INTO trainers (name, sprite, posX, posY, facing) VALUES (?, ?, ?, ?, ?)");
+	$stmt->bind_param("ssiii", $name, $sprite, $posX, $posY, $facing);
+	$select = $conn->prepare("SELECT COUNT(1) AS count FROM trainers WHERE name = ?;");
+	$select->bind_param("s", $name);
+	foreach ($arr["trainers"] as $trainer) {
+		$select->execute();
+		$result = $select->get_result(); // get the mysqli result
+		$exists = $result->fetch_assoc();
+		if ($exists == 1) {
+			
+		}
+		echo($user['count']);
 	}
 
 $conn->close();
