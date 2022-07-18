@@ -17,6 +17,8 @@ var yDelta = 0;
 var currFace = DOWN;
 var moving = false;
 var stepFrame = 0;
+var validMove = 0;
+var progress = 0;
 
 var allowMovement = true;
 
@@ -27,12 +29,13 @@ avi.src = 'img/sprite.png'; // Set source path
 
 window.onload = init;
 
-function init(){
+function init() {
+	$.post("overworld.php", {"init": 0}, processResult)
 	canvas = document.getElementById('canvas');
 	context = canvas.getContext('2d');
 	context.imageSmoothingEnabled = true;
 	context.imageSmoothingQuality = 'high';
-   
+	
 	// Start the first frame request
 	window.requestAnimationFrame(gameLoop);
 }
@@ -99,39 +102,84 @@ function draw() {
 	//context.drawImage(avi, 0, 0, CHARSIZE * 2, CHARSIZE * 2, 0, TILE * 2, avi.width * SCALAR, avi.height * SCALAR);
 }
 
+
+function processResult (data, textStatus) {
+	if (currFace == RIGHT) { // right
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2) + 1), "y": Math.round((playerY * 2))}}, processResult)
+		if (data) {
+			xDelta = .1;
+		} else {
+			xDelta = 0;
+		}
+	} else if (currFace = LEFT) { // left
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2)), "y": Math.round((playerY * 2))}}, processResult)
+		if (data) {
+			xDelta = -.1;
+		} else {
+			xDelta = 0;
+		}
+	} else if (currFace = UP) { // up
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2)), "y": Math.round((playerY * 2))}}, processResult)
+		if (data) {
+			yDelta = -.1;
+		} else {
+			yDelta = 0;
+		}
+	} else if (currFace = DOWN) { // down
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2)), "y": Math.round((playerY * 2) + 1)}}, processResult)
+		if (data) {
+			yDelta = .1;
+		} else {
+			yDelta = 0;
+		}
+	} else {
+		return 0;
+	}
+	allowMovement = false;
+	stepFrame = 0;
+	moving = true;
+	console.log(data);
+}
+
 function animateScript(event) {
 	if (!allowMovement) {
 		return;
 	}
 
 	if (event.keyCode == 39 || event.keyCode == 68) { // right
-		if (playerX < 13.5) {
+		currFace = RIGHT;
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2) + 1), "y": Math.round((playerY * 2))}}, processResult)
+		if (validMove) {
 			xDelta = .1;
 		} else {
 			xDelta = 0;
 		}
-		currFace = RIGHT;
 	} else if (event.keyCode == 37 || event.keyCode == 65) { // left
-		if (playerX > 0) {
+		currFace = LEFT;
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2)), "y": Math.round((playerY * 2))}}, processResult)
+		if (validMove) {
 			xDelta = -.1;
 		} else {
 			xDelta = 0;
 		}
-		currFace = LEFT;
 	} else if (event.keyCode == 38 || event.keyCode == 87) { // up
-		if (playerY > 0) {
+		currFace = UP;
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2)), "y": Math.round((playerY * 2))}}, processResult)
+		if (validMove) {
 			yDelta = -.1;
 		} else {
 			yDelta = 0;
 		}
-		currFace = UP;
 	} else if (event.keyCode == 40 || event.keyCode == 83) { // down
-		if (playerY < 8.5) {
+		currFace = DOWN;
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round((playerX * 2)), "y": Math.round((playerY * 2) + 1)}}, processResult)
+		if (validMove) {
 			yDelta = .1;
 		} else {
 			yDelta = 0;
 		}
-		currFace = DOWN;
+	} else if (event.keyCode == 32) {
+		$.post("overworld.php", {"checkMovement": {"direction": currFace, "x": Math.round(playerX * 2), "y": Math.round(playerY * 2)}}, processResult)
 	} else {
 		return 0;
 	}
