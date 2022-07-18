@@ -57,7 +57,7 @@ battle_main_background.onload = function() {
 //function to draw the player's pokemon
 function draw_player_pokemon(){
 	let player_x = 40 * scalingFactor;
-	let player_y = 64 * scalingFactor;
+	let player_y = 48 * scalingFactor;
 	main_ctx.drawImage(pokemon_sprite_sheet, player_sprite_x, player_sprite_y, 64, 64, player_x, player_y,  64 * scalingFactor,  64 * scalingFactor);
 }
 //function to draw the enemy's pokemon
