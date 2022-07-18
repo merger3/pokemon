@@ -1,4 +1,3 @@
-//(MoveName, MoveStyle, MovePower, PowerPoints, MoveType, MovePriority)
 { "pokemon": [ 
     {
     "id": 0,
