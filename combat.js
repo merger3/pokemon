@@ -27,7 +27,7 @@ const main_canvas = document.getElementById("main_canvas");
 const main_ctx = main_canvas.getContext("2d");
 main_ctx.imageSmoothingEnabled = false;
 main_ctx.webitImageSmoothingEnabled = false;
-main_canvas.width = 480;
+main_canvas.width = window.innerWidth;
 main_canvas.height = main_canvas.width / 1.5;
 let scalingFactor = main_canvas.width / 240;
 
@@ -49,16 +49,7 @@ battle_main_background.onload = function() {
 		//TODO: change this to the correct pokemon
 		battle_ui.src = "img/battle_ui.png";
 		battle_ui.onload = function () {
-			main_ctx.drawImage(battle_ui, 297, 56, 240, 48, 0, main_canvas.height * 7 / 10, main_canvas.width, main_canvas.height * 3 / 10);
-			main_ctx.drawImage(battle_ui, 146, 4, 120, 48, 121 * scalingFactor, main_canvas.height * 7 / 10, 120 * scalingFactor, main_canvas.height * 3 / 10);
-			main_ctx.drawImage(battle_ui, 3, 3, 100, 30, 13 * scalingFactor, 16 * scalingFactor, 100 * scalingFactor, 30 * scalingFactor);
-			main_ctx.drawImage(battle_ui, 3, 44, 104, 37, 126 * scalingFactor, 74 * scalingFactor, 104 * scalingFactor, 37 * scalingFactor);
-			main_ctx.font = "20px Courier New";
-			main_ctx.fillStyle = "white";
-			main_ctx.fillText("What will", 10 * scalingFactor, 133 * scalingFactor);
-
-			//TODO: change this to the correct pokemon
-			main_ctx.fillText(player_pokemon.name + " do?", 10 * scalingFactor, 148 * scalingFactor);
+			draw_options_pane();
 		}
 	}
 }
@@ -74,6 +65,20 @@ function draw_enemy_pokemon(){
 	let enemy_y = 10 * scalingFactor;
 	main_ctx.drawImage(pokemon_sprite_sheet, enemy_sprite_x, enemy_sprite_y, 64, 64, enemy_x, enemy_y, 64 * scalingFactor,  64 * scalingFactor);
 
+}
+function draw_options_pane() {
+	main_ctx.drawImage(battle_ui, 297, 56, 240, 48, 0, main_canvas.height * 7 / 10, main_canvas.width, main_canvas.height * 3 / 10);
+	main_ctx.drawImage(battle_ui, 146, 4, 120, 48, 121 * scalingFactor, main_canvas.height * 7 / 10, 120 * scalingFactor, main_canvas.height * 3 / 10);
+	main_ctx.drawImage(battle_ui, 3, 3, 100, 30, 13 * scalingFactor, 16 * scalingFactor, 100 * scalingFactor, 30 * scalingFactor);
+	main_ctx.drawImage(battle_ui, 3, 44, 104, 37, 126 * scalingFactor, 74 * scalingFactor, 104 * scalingFactor, 37 * scalingFactor);
+	main_ctx.drawImage(battle_ui, 269, 4, 6, 10, 129 * scalingFactor, 124 * scalingFactor, 6 * scalingFactor, 10 * scalingFactor);
+
+	main_ctx.font = "20px Courier New";
+	main_ctx.fillStyle = "white";
+	main_ctx.fillText("What will", 10 * scalingFactor, 133 * scalingFactor);
+
+	//TODO: change this to the correct pokemon
+	main_ctx.fillText(player_pokemon.name + " do?", 10 * scalingFactor, 148 * scalingFactor);
 }
 //displaying health of the Pokemon
 function healthBar(){
