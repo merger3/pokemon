@@ -1,4 +1,5 @@
-{ "moves": [ 
+//(MoveName, MoveStyle, MovePower, PowerPoints, MoveType, MovePriority)
+{ "pokemon": [ 
     {
     "id": 0,
     "MoveName": "Pound",
@@ -706,7 +707,7 @@
     "PowerPoints": 20,
     "MovePower": 0,
     "Accuracy": 60,
-	"Inflicts": "Confused",
+	"Inflicts": "Sleeping",
 	"InflictChance": 100
 	},
 	{
@@ -717,6 +718,16 @@
     "MovePower": 0,
     "Accuracy": 55,
 	"Inflicts": "Poison",
+	"InflictChance": 100
+    },
+	{
+    "id": 70,
+    "MoveName": "Confuse Ray",
+    "MoveType": "Ghost",
+    "PowerPoints": 10,
+    "MovePower": 0,
+    "Accuracy": 100,
+	"Inflicts": "Confused",
 	"InflictChance": 100
     }
     ]
