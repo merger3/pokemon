@@ -107,7 +107,7 @@ $queries = array(
 		$posY = $trainer["posY"];
 		$facing = $trainer["facing"];
 		$select->execute();
-		$result = $select->get_result(); // get the mysqli result
+		$result = $select->get_result();
 		$exists = $result->fetch_assoc();
 		if ($exists["count"] == 0) {
 			echo("inserting trainer<br>");
@@ -136,13 +136,42 @@ $queries = array(
 		$InflictChance = $move["InflictChance"];
 
 		$select->execute();
-		$result = $select->get_result(); // get the mysqli result
+		$result = $select->get_result();
 		$exists = $result->fetch_assoc();
 		if ($exists["count"] == 0) {
 			echo("inserting move<br>");
 			$stmt->execute();
 		} else {
 			echo("move exists<br>");
+		}
+	}
+
+	$file = 'json/pokedex.json';
+	$data = file_get_contents($file);
+	$arr = json_decode($data, true);
+	$stmt = $conn->prepare("INSERT INTO pokemonDefs (id, name, primaryType, secondaryType, hp, attack, defense, special, speed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt->bind_param("isssiiiii", $id, $name, $primaryType, $secondaryType, $hp, $attack, $defense, $special, $speed);
+	$select = $conn->prepare("SELECT COUNT(1) AS count FROM pokemonDefs WHERE id = ?;");
+	$select->bind_param("i", $id);
+	foreach ($arr["pokemon"] as $pokemon) {
+		$id = $pokemon["id"];
+		$name = $pokemon["name"];
+		$primaryType = $pokemon["primaryType"];
+		$secondaryType = $pokemon["secondaryType"];
+		$hp = $pokemon["hp"];
+		$attack = $pokemon["attack"];
+		$defense = $pokemon["defense"];
+		$special = $pokemon["special"];
+		$speed = $pokemon["speed"];
+
+		$select->execute();
+		$result = $select->get_result();
+		$exists = $result->fetch_assoc();
+		if ($exists["count"] == 0) {
+			echo("inserting pokemon<br>");
+			$stmt->execute();
+		} else {
+			echo("pokemon exists<br>");
 		}
 	}
 

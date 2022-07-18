@@ -2,8 +2,8 @@
 	{
 	"name": "Grunt",
 	"sprite": "grunt.png",
-	"posX": 5,
-	"posY": 5,
+	"posX": 2,
+	"posY": 10,
 	"facing": 1
 	},
 	{

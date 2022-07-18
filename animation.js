@@ -29,10 +29,27 @@ img.src = 'img/map.png'; // Set source path
 var avi = new Image(); // Create new img element
 avi.src = 'img/sprite.png'; // Set source path
 
+function Trainer(name, sprite, posX, posY, facing) {
+	this.name = name;
+	this.sprite = sprite;
+	this.posX = posX;
+	this.posY = posY;
+	this.facing = facing;
+	this.avi = new Image();
+	this.avi.src = "img/" + this.sprite;
+	console.log(this.avi.src)
+	this.draw = function() {
+		context.drawImage(this.avi, 0, CHARSIZE * facing, (this.avi.width / 4), this.avi.height, (canvas.width / 15) * (this.posX / 2), (canvas.height / 10) * (this.posY / 2), canvas.width / 15, canvas.height / 10); // destination rectangle
+	}
+}
+
+var Trainers = Array();
+
 window.onload = init;
 
 function init() {
 	$.post("overworld.php", {"init": 0}, processResult)
+	$.post("overworld.php", {"loadTrainers": 0}, drawTrainers)
 	canvas = document.getElementById('canvas');
 	context = canvas.getContext('2d');
 	context.imageSmoothingEnabled = true;
@@ -41,6 +58,15 @@ function init() {
 	// Start the first frame request
 	window.requestAnimationFrame(gameLoop);
 }
+
+function drawTrainers(data, textStatus) {
+	var loadedTrainers = JSON.parse(data);
+	for (var i = 0; i < loadedTrainers.length; i++) {
+		var t = loadedTrainers[i];
+		Trainers.push(new Trainer(t["name"], t["sprite"], t["posX"], t["posY"], t["facing"]));
+	}
+}
+
 
 var delta = 50;
 var oldTime = 0;
@@ -52,6 +78,9 @@ function gameLoop(timeStamp) {
 	if ((timeStamp - oldTime) >= delta){
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		draw();
+		for (var i = 0; i < Trainers.length; i++) {
+			Trainers[i].draw();
+		}
 		playerX += xDelta;
 		playerY += yDelta;
 		if (moving) {
