@@ -27,8 +27,36 @@
 				}
 			}
 		}
+
+
 		$_SESSION['initialized'] = 1;
 		print_r($_SESSION['map']);
+
+	} else if (isset($_REQUEST['loadTrainers'])) {
+		$servername = "localhost";
+		$username = "user";
+		$password = "pass";
+		$dbname = "pokemon";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+		} 
+
+
+		$sql = "SELECT * FROM trainers";
+		$result = $conn->query($sql);
+		$rows = array();
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				$rows[] = $row;
+			}
+		} else {
+			echo "0 results";
+		}
+		print(json_encode($rows));
 	} else if (isset($_REQUEST['checkMovement'])) {
 		$dir = $_REQUEST['checkMovement']['direction'];
 		$x = $_REQUEST['checkMovement']['x'];
