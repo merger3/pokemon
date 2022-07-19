@@ -1,6 +1,6 @@
 //TODO: dummy object, to be replaced with actual pokemon when intergration is complete
 function Pokemon(x, y) {
-	this.name = "Bulbasaur";
+	this.name = "BULBASAUR";
 	this.sprite_x = x;
 	this.sprite_y = y;
 	this.Health = 100;
@@ -8,6 +8,8 @@ function Pokemon(x, y) {
 	this.Level = 5;
 	this.Exp = 100;	//max exp
 	this.current_exp = 20;	//current exp
+	this.Attack = "TACKLE";
+	this.Type = "FLYING";
 
 }
 let player_pokemon = new Pokemon(11, 110);	//dummy values
@@ -20,17 +22,16 @@ let enemy_sprite_x = enemy_pokemon.sprite_x;
 let enemy_sprite_y = enemy_pokemon.sprite_y;
 
 //TODO: change this to the correct background
-let bg_x = 6;
+let bg_x = 249;
 let bg_y = 6;
 
 const main_canvas = document.getElementById("main_canvas");
 const main_ctx = main_canvas.getContext("2d");
-main_ctx.imageSmoothingEnabled = false;
-main_ctx.webitImageSmoothingEnabled = false;
 main_canvas.width = window.innerWidth;
 main_canvas.height = main_canvas.width / 1.5;
 let scalingFactor = main_canvas.width / 240;
 
+let battle_mode = "main_menu";		//move select, pokemon select, item select
 
 //loading the background
 const battle_main_background = new Image();
@@ -40,45 +41,81 @@ const pokemon_sprite_sheet = new Image();
 
 //choosing the correct background
 battle_main_background.onload = function() {
+	main_ctx.imageSmoothingEnabled = false;
+	main_ctx.webitImageSmoothingEnabled = false;
 	main_ctx.drawImage(battle_main_background, bg_x, bg_y, 240, 112, 0, 0, main_canvas.width, main_canvas.height * 7 / 10);
 
 	pokemon_sprite_sheet.src = "img/battle_pokemons.png";
 	pokemon_sprite_sheet.onload = function() {
-		draw_player_pokemon();
-		draw_enemy_pokemon();
 		//TODO: change this to the correct pokemon
 		battle_ui.src = "img/battle_ui.png";
 		battle_ui.onload = function () {
 			draw_options_pane();
+			draw_player_pokemon();
+			draw_enemy_pokemon();
+
+
 		}
 	}
-}
+};
 //function to draw the player's pokemon
 function draw_player_pokemon(){
 	let player_x = 40 * scalingFactor;
 	let player_y = 48 * scalingFactor;
 	main_ctx.drawImage(pokemon_sprite_sheet, player_sprite_x, player_sprite_y, 64, 64, player_x, player_y,  64 * scalingFactor,  64 * scalingFactor);
+	fill_player_info();
+}
+function fill_player_info() {
+	main_ctx.save();
+	main_ctx.font = (10 * scalingFactor) + "px Courier New";
+	main_ctx.fillStyle = "rgb(64,64,64)";
+	main_ctx.shadowColor = "rgb(216,208,176)";
+	main_ctx.shadowOffsetX = scalingFactor;
+	main_ctx.shadowOffsetY = scalingFactor;
+	//TODO: replace player_pokemon.Level with real value
+	main_ctx.fillText(player_pokemon.Level, 216 * scalingFactor, 86 * scalingFactor, 7 * scalingFactor);
+	main_ctx.fillText(player_pokemon.name, 142 * scalingFactor, 86 * scalingFactor, 64 * scalingFactor);
+	main_ctx.restore();
 }
 //function to draw the enemy's pokemon
 function draw_enemy_pokemon(){
 	let enemy_x = 144 * scalingFactor;
 	let enemy_y = 10 * scalingFactor;
 	main_ctx.drawImage(pokemon_sprite_sheet, enemy_sprite_x, enemy_sprite_y, 64, 64, enemy_x, enemy_y, 64 * scalingFactor,  64 * scalingFactor);
-
+	main_ctx.save();
+	main_ctx.font = (10 * scalingFactor) + "px Courier New";
+	main_ctx.fillStyle = "rgb(64,64,64)";
+	main_ctx.shadowColor = "rgb(216,208,176)";
+	main_ctx.shadowOffsetX = scalingFactor;
+	main_ctx.shadowOffsetY = scalingFactor;
+	//TODO: replace enemy_pokemon.Level with real value
+	main_ctx.fillText(enemy_pokemon.Level, 94 * scalingFactor, 28 * scalingFactor);
+	main_ctx.fillText(enemy_pokemon.name, 20 * scalingFactor, 28 * scalingFactor);
+	main_ctx.restore();
 }
 function draw_options_pane() {
+	battle_mode = "main_menu";
+	//draw blue options pane
 	main_ctx.drawImage(battle_ui, 297, 56, 240, 48, 0, main_canvas.height * 7 / 10, main_canvas.width, main_canvas.height * 3 / 10);
+	//draw fight bag and run buttons
 	main_ctx.drawImage(battle_ui, 146, 4, 120, 48, 121 * scalingFactor, main_canvas.height * 7 / 10, 120 * scalingFactor, main_canvas.height * 3 / 10);
+	//draw enemy's stats box
 	main_ctx.drawImage(battle_ui, 3, 3, 100, 30, 13 * scalingFactor, 16 * scalingFactor, 100 * scalingFactor, 30 * scalingFactor);
+	//draw player's stats box
 	main_ctx.drawImage(battle_ui, 3, 44, 104, 37, 126 * scalingFactor, 74 * scalingFactor, 104 * scalingFactor, 37 * scalingFactor);
+	//draw selection arrow
 	main_ctx.drawImage(battle_ui, 269, 4, 6, 10, 129 * scalingFactor, 124 * scalingFactor, 6 * scalingFactor, 10 * scalingFactor);
-
-	main_ctx.font = "20px Courier New";
-	main_ctx.fillStyle = "white";
+	main_ctx.save();
+	main_ctx.font = (1/20 * main_canvas.width) + "px Courier New";
+	main_ctx.fillStyle = "rgb(248,248,248)";
+	main_ctx.shadowColor = "rgb(104,88,112)";
+	main_ctx.shadowOffsetX = 2;
+	main_ctx.shadowOffsetY = 2;
 	main_ctx.fillText("What will", 10 * scalingFactor, 133 * scalingFactor);
-
 	//TODO: change this to the correct pokemon
 	main_ctx.fillText(player_pokemon.name + " do?", 10 * scalingFactor, 148 * scalingFactor);
+	main_ctx.restore();
+	expBar();
 }
 //displaying health of the Pokemon
 function healthBar(){
@@ -102,6 +139,27 @@ function healthBar(){
 	main_ctx.drawImage(battle_ui, depleted_health_bar_x, depleted_health_bar_y, 9, 3, enemy_health_bar_x - enemy_depleted_health_bar_width, enemy_health_bar_y, enemy_depleted_health_bar_width, 3 * scalingFactor);
 	main_ctx.restore();
 }
+function moveSelect() {
+	battle_mode = "move_select";
+	main_ctx.drawImage(battle_ui, 297, 4, 240, 48, 0, main_canvas.height * 7 / 10, main_canvas.width, main_canvas.height * 3 / 10);
+	main_ctx.save();
+	main_ctx.font = (1/24 * main_canvas.width) + "px Courier New";
+	main_ctx.fillStyle = "rgb(72,72,72)";
+	main_ctx.shadowColor = "rgb(208,208,200)";
+	main_ctx.shadowOffsetX = 2;
+	main_ctx.shadowOffsetY = 2;
+	//TODO: change this to the correct pokemon
+	main_ctx.fillText(player_pokemon.Attack, 15 * scalingFactor, 133 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack, 15 * scalingFactor, 148 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack, 90 * scalingFactor, 133 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack, 90 * scalingFactor, 148 * scalingFactor, 58 * scalingFactor);
+
+	main_ctx.font = (1/20 * main_canvas.width) + "px Courier New";
+	main_ctx.fillText(player_pokemon.Type, 191 * scalingFactor, 149 * scalingFactor, 43 * scalingFactor);
+
+	main_ctx.restore();
+}
+
 //displaying exp of the Pokemon
 function expBar() {
 	let exp_bar_x = 129;
@@ -115,6 +173,10 @@ function expBar() {
 	main_ctx.save();
 	if (player_exp_percent === 0) {
 		main_ctx.drawImage(battle_ui, 35, 77, 70, 2, player_exp_bar_x, player_exp_bar_y, 70 * scalingFactor, 2 * scalingFactor);
+		//draw player's stats box
+		main_ctx.drawImage(battle_ui, 3, 44, 104, 37, 126 * scalingFactor, 74 * scalingFactor, 104 * scalingFactor, 37 * scalingFactor);
+		healthBar();
+		fill_player_info();
 	}
 	main_ctx.drawImage(battle_ui, exp_bar_x, exp_bar_y, 7, 2, player_exp_bar_x, player_exp_bar_y, player_exp_percent * 64 * scalingFactor, 2 * scalingFactor);
 	main_ctx.restore();
@@ -153,8 +215,19 @@ addEventListener("keydown", function (e) {
 			player_pokemon.Level += 1;
 			player_pokemon.Exp = player_pokemon.Level ** 3;
 			player_pokemon.current_exp = 0;
+
+			draw_player_pokemon();
 			requestAnimationFrame(expBar);
 		}
 	}
 	console.log(player_pokemon.current_exp + " " + player_pokemon.Exp);
+});
+
+
+//TODO: change this so exp changes when it is gained
+addEventListener("keydown", function (e) {
+	let key = e.key;
+	if (key === "ArrowDown") {
+		moveSelect();
+	}
 });
