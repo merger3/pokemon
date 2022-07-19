@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $servername = "localhost";
 $username = "user";
 $password = "pass";
@@ -11,12 +12,12 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+echo "Connected successfully<br>";
 
 
 $sql = "CREATE DATABASE IF NOT EXISTS pokemon";
 if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
+  echo "Database created successfully<br>";
 } else {
   echo "Error creating database: " . $conn->error;
 }
@@ -24,12 +25,20 @@ if ($conn->query($sql) === TRUE) {
 
 $queries = array(
 	"CREATE TABLE IF NOT EXISTS trainers (
-	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(30),
+	name VARCHAR(30) PRIMARY KEY,
 	sprite TEXT,
 	posX INT,
 	posY INT,
 	facing INT
+	)",
+
+	"CREATE TABLE IF NOT EXISTS dialogue (
+	textOrder INT,
+	trainerName VARCHAR(30),
+	lineNum INT,
+	value TEXT,
+	PRIMARY KEY(textOrder, lineNum, trainerName),
+	CONSTRAINT trainer_fk FOREIGN KEY (trainerName) REFERENCES trainers(name)
 	)",
 
 	"CREATE TABLE IF NOT EXISTS pokemonDefs (
@@ -48,7 +57,7 @@ $queries = array(
 	"CREATE TABLE IF NOT EXISTS captured (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	pokemonID INT,
-	ownerID INT UNSIGNED,
+	ownerName VARCHAR(30),
 	currentHP INT,
 	status TEXT,
 	level INT,
@@ -59,7 +68,7 @@ $queries = array(
 	special INT,
 	speed INT,
 	CONSTRAINT pokemon_fk FOREIGN KEY (pokemonID) REFERENCES pokemonDefs(id),
-	CONSTRAINT owner_fk FOREIGN KEY (ownerID) REFERENCES trainers(id)
+	CONSTRAINT owner_fk FOREIGN KEY (ownerName) REFERENCES trainers(name)
 	)",
 
 	"CREATE TABLE IF NOT EXISTS moves (
@@ -85,7 +94,7 @@ $queries = array(
 	
 	foreach ($queries as $query) {
 		if ($conn->query($query) === TRUE) {
-		  echo "Table created successfully";
+		  echo "Table created successfully<br>";
 		} else {
 		  echo "Error creating table: " . $conn->error;
 		}
@@ -93,13 +102,22 @@ $queries = array(
 	}
 
 
+	// textOrder INT,
+	// trainerID INT UNSIGNED,
+	// lineNum INT,
+	// value TEXT,
+
 	$file = 'json/trainers.json';
 	$data = file_get_contents($file);
 	$arr = json_decode($data, true);
+
 	$stmt = $conn->prepare("INSERT INTO trainers (name, sprite, posX, posY, facing) VALUES (?, ?, ?, ?, ?)");
 	$stmt->bind_param("ssiii", $name, $sprite, $posX, $posY, $facing);
+	
 	$select = $conn->prepare("SELECT COUNT(1) AS count FROM trainers WHERE name = ?;");
 	$select->bind_param("s", $name);
+	$sql = "DELETE FROM dialogue;";
+	$conn->query($sql);
 	foreach ($arr["trainers"] as $trainer) {
 		$name = $trainer["name"];
 		$sprite = $trainer["sprite"];
@@ -115,6 +133,30 @@ $queries = array(
 		} else {
 			echo("trainer exists<br>");
 		}
+		
+
+		$stmt2 = $conn->prepare("INSERT INTO dialogue (textOrder, trainerName, lineNum, value) VALUES (?, ?, ?, ?)");
+		$stmt2->bind_param("isis", $textOrder, $trainerName, $lineNum, $value);
+	
+		$i = 0;
+		foreach ($trainer["dialogue"] as $dialogue) {
+			$textOrder = $i;
+			$trainerName = $trainer["name"];
+			$lineNum = 0;
+			$value = $dialogue['line1'];
+			$stmt2->execute();
+			echo("Line1 added<br>");
+			$textOrder = $i;
+			$trainerName = $trainer["name"];
+			$lineNum = 1;
+			$value = $dialogue['line2'];
+			$stmt2->execute();
+			echo("Line2 added<br>");
+			$i++;
+		}
+
+
+
 	}
 
 
@@ -176,4 +218,6 @@ $queries = array(
 	}
 
 $conn->close();
+header( 'Location: http://localhost/pokemon/overworld.html' );
+exit;
 ?>
