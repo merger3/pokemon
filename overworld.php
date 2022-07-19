@@ -51,12 +51,39 @@
 		$rows = array();
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
+				$_SESSION['map'][$row["posY"]][$row["posX"]] = 1;
+				$_SESSION['map'][$row["posY"] + 1][$row["posX"]] = 1;
+				$_SESSION['map'][$row["posY"]][$row["posX"] + 1] = 1;
+				$_SESSION['map'][$row["posY"] + 1][$row["posX"] + 1] = 1;
 				$rows[] = $row;
 			}
 		} else {
 			echo "0 results";
 		}
 		print(json_encode($rows));
+	} else if (isset($_REQUEST['trainer'])) {
+		$servername = "localhost";
+		$username = "user";
+		$password = "pass";
+		$dbname = "pokemon";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+		} 
+
+
+		$select = $conn->prepare("SELECT * FROM dialogue WHERE trainerName = ? ORDER BY textOrder, lineNum;");
+		$select->bind_param("s", $name);
+		$name = $_REQUEST['trainer'];
+
+		$select->execute();
+		$result = $select->get_result();
+		
+		$exists = $result->fetch_all(MYSQLI_ASSOC);
+		print(json_encode($exists));
 	} else if (isset($_REQUEST['checkMovement'])) {
 		$dir = $_REQUEST['checkMovement']['direction'];
 		$x = $_REQUEST['checkMovement']['x'];

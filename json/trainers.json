@@ -1,17 +1,116 @@
 { "trainers": [ 
 	{
-	"name": "Grunt",
-	"sprite": "grunt.png",
-	"posX": 2,
-	"posY": 10,
-	"facing": 1
+		"name": "Grunt",
+		"sprite": "grunt.png",
+		"posX": 2,
+		"posY": 13,
+		"facing": 1,
+		"dialogue" : [
+			{
+				"line1": "Hey kid, whatcha looking at?",
+				"line2": "Mind your own business I'm warning you!"
+			},
+			{
+				"line1": "Don't say I didn't warn you kid.",
+				"line2": "Time to fight!"
+			}
+		]
 	},
 	{
-	"name": "Joe",
-	"sprite": "joe.png",
-	"posX": 10,
-	"posY": 10,
-	"facing": 1
+		"name": "Joe",
+		"sprite": "joe.png",
+		"posX": 17,
+		"posY": 5,
+		"facing": 1,
+		"dialogue" : [
+			{
+				"line1": "Oh my now how did I end up here?",
+				"line2": "I do love finding new places to explore."
+			},
+			{
+				"line1": "...",
+				"line2": ""
+			},
+			{
+				"line1": "...",
+				"line2": "..."
+			},
+			{
+				"line1": "My apologies, I must have dozed off.",
+				"line2": "Since we're both here, care to battle?"
+			}
+		]
+	},
+	{
+		"name": "Wealthy",
+		"sprite": "wealthy.png",
+		"posX": 28,
+		"posY": 14,
+		"facing": 1,
+		"dialogue" : [
+			{
+				"line1": "It's certainly eerie enough in here isn't it?",
+				"line2": "I don't mind the atmosphere but the graves are a bit much."
+			},
+			{
+				"line1": "I'm glad I brought my scarf at least.",
+				"line2": "If you've got the time, a battle is in order?"
+			}
+		]
+	},
+	{
+		"name": "Leader",
+		"sprite": "leader.png",
+		"posX": 27,
+		"posY": 17,
+		"facing": 1,
+		"dialogue" : [
+			{
+				"line1": "It seems everyone ended up here",
+				"line2": "but no one is sure how."
+			},
+			{
+				"line1": "Mysterious circumstances.",
+				"line2": "There's no connection tying everyone together."
+			},
+			{
+				"line1": "Couldn't have picked a creepier place either,",
+				"line2": "I wonder if someone is trying to send a message?"
+			},
+			{
+				"line1": "...",
+				"line2": "Or scare us off."
+			},
+			{
+				"line1": "Prove to me I can trust you,",
+				"line2": "defeat me in battle!"
+			}
+		]
+	},
+	{
+		"name": "Lady",
+		"sprite": "lady.png",
+		"posX": 12,
+		"posY": 14,
+		"facing": 1,
+		"dialogue" : [
+			{
+				"line1": "Hello sir, are you looking for someone to talk to?",
+				"line2": "I hate to disappoint you but I am not interested!"
+			},
+			{
+				"line1": "Well...",
+				"line2": "..."
+			},
+			{
+				"line1": "It is awfully lonely here, not to mention",
+				"line2": "boring as well."
+			},
+			{
+				"line1": "We can talk but only if you can defeat me",
+				"line2": "in a battle first!"
+			}
+		]
 	}
 	]
 }
