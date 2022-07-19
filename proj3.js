@@ -2,7 +2,7 @@ function Pokemon(PokemonName, PokemonID, PokedexID, primaryType, secondaryType, 
 	this.PokemonName = PokemonName;
 	this.PokemonID = PokemonID;
 	this.PokedexID = PokedexID;
-	this.MoveList = MoveFiller();       
+	this.MoveList = MoveFiller();
 	this.primaryType = primaryType;
 	this.secondaryType = secondaryType;
 	this.Level = Level;
@@ -15,10 +15,12 @@ function Pokemon(PokemonName, PokemonID, PokedexID, primaryType, secondaryType, 
 	this.primaryTypeNum = TypeToInt(primaryType);
 	this.secondaryTypeNum = TypeToInt(secondaryType);
 	this.Exp = Level * Level * Level;
-	
+	this.currentEXP = 0;
+
 	//Battle Health
 	this.HealthPoints = HPCalc(Level, Health);
-	
+	this.currentHealth = this.HealthPoints;
+
 	//Additions: Evasion, IV's (add to base during object creation), Natures, Evolution Level
 	//Advanced stat values: https://bulbapedia.bulbagarden.net/wiki/Individual_values
 }
@@ -38,8 +40,8 @@ function Move(MoveID, MoveName, MoveType, PowerPoints, MovePower, Accuracy, Infl
 let teamMon = [];
 let registeredPokemon = [];
 let enemyMon = [];
-let Types = ["Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", 
-"Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon"];
+let Types = ["Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost",
+	"Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon"];
 let Status = ["Burn", "Freeze", "Paralysis", "Poison", "Confused", "Sleeping"];
 
 var typeMults = [[1, 1, 1, 1, 1, 0.5, 1, 0, 1, 1, 1, 1, 1, 1, 1],  //Normal
@@ -72,7 +74,7 @@ function TypeToInt(typeString){
 
 function PowerLeveler(pkmn, levelsUp){
 	var HPLost = Math.floor(((pkmn.Health * 2 + 100) * pkmn.Level)/100 + 10) - pkmn.HealthPoints;
-	
+
 	pkmn.Level = pkmn.Level + levelsUp;
 	for (var i = 0; i < levelsUp; i++){
 		pkmn.Health = pkmn.Health + randomInt(1,3);
@@ -81,13 +83,13 @@ function PowerLeveler(pkmn, levelsUp){
 		pkmn.Special = pkmn.Special + randomInt(1,3);
 		pkmn.Speed = pkmn.Speed + randomInt(1,3);
 	}
-	
+
 	if (pkmn.Exp < pkmn.Level * pkmn.Level * pkmn.Level){
 		pkmn.Exp = pkmn.Level * pkmn.Level * pkmn.Level;
 	}
-	
+
 	var totalHP = Math.floor(((pkmn.Health * 2 + 100) * pkmn.Level)/100 + 10);
-	
+
 	pkmn.HealthPoints = totalHP - HPLost;
 }
 
@@ -103,13 +105,13 @@ function randomInt(min, max){
 function MoveFiller(){
 	var moveSlots = new Array(4);
 	moveSlots[0] = new Move("Vine Whip", "Attack", 45, 25, "Grass", 0);
-	moveSlots[1] = new Move("Tackle", "Attack", 40, 35, "Normal", 0);  
-	moveSlots[2] = new Move("Water Gun", "Attack", 40, 25, "Water", 0);  
-	moveSlots[3] = new Move("Struggle", "Attack", 50, 1, "Normal", 0);  
+	moveSlots[1] = new Move("Tackle", "Attack", 40, 35, "Normal", 0);
+	moveSlots[2] = new Move("Water Gun", "Attack", 40, 25, "Water", 0);
+	moveSlots[3] = new Move("Struggle", "Attack", 50, 1, "Normal", 0);
 	return moveSlots;
-	}
+}
 
-	//Currently not working
+//Currently not working
 function DamageMultiplier(move, targetPkmn){
 	var critMultiplier = 1;
 	var attackType = move.MoveTypeNum;
@@ -124,8 +126,8 @@ function DamageMultiplier(move, targetPkmn){
 function MoveUse(move, sourcePkmn, targetPkmn){
 	var Attack = sourcePkmn.Attack;
 	var Defense = targetPkmn.Defense;
-	
-	
+
+
 	//Status Effect Checks
 	if (sourcePkmn.Status == "Freeze" || sourcePkmn.Status =="Sleeping"){
 		if (randomInt(0, 100) < 33){
@@ -135,7 +137,7 @@ function MoveUse(move, sourcePkmn, targetPkmn){
 			console.log("The status condition prevented an attack");
 		}
 	}
-	
+
 	var statClear = randomInt(0, 100);
 	if (sourcePkmn.Status == "Paralysis" || sourcePkmn.Status =="Confused"){
 		if (statusClear < 75){
@@ -146,13 +148,13 @@ function MoveUse(move, sourcePkmn, targetPkmn){
 			console.log("The status condition prevented an attack");
 		}
 	}
-	
-	
+
+
 	if (randomInt(0, 100) > move.Accuracy){
 		console.log("The attack missed");
 		return 0;
 	}
-	
+
 	if (move.MoveTypeNum > 7){
 		Attack = sourcePkmn.Special;
 		Defense = targetPkmn.Special;
@@ -160,7 +162,7 @@ function MoveUse(move, sourcePkmn, targetPkmn){
 	else if (move.MovePower == 0){
 		targetPkmn.Status = move.Inflicts;
 	}
-	else{	
+	else{
 		var name = targetPkmn.PokemonName + " Damage: ";
 		var damage = ((((sourcePkmn.Level/2.5) + 2) * move.MovePower * Attack / Defense / 50) + 2);
 		//console.log(name + Math.floor(damage));
@@ -171,7 +173,7 @@ function MoveUse(move, sourcePkmn, targetPkmn){
 		targetPkmn.HealthPoints = Math.floor(targetPkmn.HealthPoints - damage);
 		if (targetPkmn.HealthPoints < 0)
 			targetPkmn.HealthPoints = 0;
-		
+
 		if (move.InflictChance > 0){
 			if (randomInt(0, 100) <= moveInflictChance){
 				targetPkmn.Status = move.Inflicts;
@@ -222,56 +224,56 @@ function BattleAttack(trainerMon, AIMon, selectedMove){
 	//var selectedMove = trainerMon.MoveList[0];
 	//var enemyMove = AIMon.MoveList[Math.floor(Math.random() * 4)];
 	var enemyMove = AIMon.MoveList[2];
-	
+
 	//For use in animation
 	var tMonStartHP = trainerMon.HealthPoints;
 	var aMonStartHP = AIMon.HealthPoints;
 	var level = trainerMon.Level;
-	
+
 	if (trainerMon.Speed > AIMon.Speed){
 		MoveUse(selectedMove, trainerMon, AIMon);
 		if (AIMon.HealthPoints <= 0){
 			console.log(trainerMon.PokemonName + " wins!");
 			trainerMon.Exp = trainerMon.Exp + ((level * level * level) / 3);
 			return 1;
-		}		
+		}
 		MoveUse(enemyMove, AIMon, trainerMon);
 		if (trainerMon.HealthPoints <= 0){
 			console.log(AIMon.PokemonName + " wins!");
 			return 2;
-		}	
+		}
 	}
 	else{
 		MoveUse(enemyMove, AIMon, trainerMon);
 		if (trainerMon.HealthPoints <= 0){
 			console.log(AIM.PokemonName + " wins!");
 			return 2;
-		}	
+		}
 		MoveUse(selectedMove, trainerMon, AIMon);
 		if (AIMon.HealthPoints <= 0){
 			console.log(trainerMon.PokemonName + " wins!");
 			trainerMon.Exp = trainerMon.Exp + ((level * level * level) / 3);
 			return 1;
-		}	
+		}
 	}
 
 	if (trainerMon.Status == "Poison" || trainerMon.Status == "Burn")
 		trainerMon.HealthPoints = trainerMon.HealthPoints - Math.floor(HPCalc(trainerMon.Level, trainerMon.Health)/16);
 	if (AIMon.Status == "Poison" || AIMon.Status == "Burn")
 		AIMon.HealthPoints = AIMon.HealthPoints - Math.floor(HPCalc(AIMon.Level, AIMon.Health)/16);
-	
+
 	if (trainerMon.HealthPoints <= 0){
 		console.log(AIMon.PokemonName + " wins!");
 		return 2;
-	}	
+	}
 
 	if (AIMon.HealthPoints <= 0){
 		console.log(trainerMon.PokemonName + " wins!");
 		trainerMon.Exp = trainerMon.Exp + ((level * level * level) / 3);
 		return 1;
-	}	
-	
-	
+	}
+
+
 	return 0;
 }
 
@@ -292,7 +294,7 @@ function backEndTesting(){
 	//console.log("Past the turn");
 	//PowerLeveler(bulbasaur, 4)
 	//PokemonName, PokemonID, PokedexID, primaryType, secondaryType, Level, Health, Attack, Defense, Special, Speed){
-	//Move(MoveID, MoveName, MoveType, PowerPoints, MovePower, Accuracy, Inflicts, InflictChance)	
+	//Move(MoveID, MoveName, MoveType, PowerPoints, MovePower, Accuracy, Inflicts, InflictChance)
 }
 
 function PokemonConsoleSummary(Pkmn){
@@ -312,7 +314,7 @@ function PokemonConsoleSummary(Pkmn){
 	console.log("Speed: " +Pkmn.Speed);
 	console.log("primaryTypeNum: " + Pkmn.primaryTypeNum);
 	console.log("secondaryTypeNum: " + Pkmn.secondaryTypeNum);
-	//Pokemon(PokemonName, PokemonID, PokedexID, primaryType, secondaryType, Attack, Defense, Special, Speed) 
+	//Pokemon(PokemonName, PokemonID, PokedexID, primaryType, secondaryType, Attack, Defense, Special, Speed)
 	//primaryTypeNum secondaryTypeNum  HealthPoints
 	//Move(MoveName, MoveStyle, MovePower, PowerPoints, MoveType, MovePriority)
 	return 0;

@@ -1,52 +1,53 @@
-//TODO: dummy object, to be replaced with actual pokemon when intergration is complete
-function PokemonSprite(pkmn, x, y) {
+//TODO: dummy object, to be replaced with actual pokemon when integration is complete
+function PokemonSprite(pkmn){
+	this.pokemon = pkmn;
 	this.name = pkmn.PokemonName;
-	this.sprite_x = x;
-	this.sprite_y = y;
-	this.Health = 100;
-	this.current_health = 100;
-	this.Attack = "TACKLE";
-	this.Type = "FLYING";
+	this.sprite_x = sprite_CalcX(pkmn);
+	this.sprite_y = sprite_CalcY(pkmn);
+	this.enemy_sprite_y = sprite_CalcY2(pkmn);
+	this.Health = pkmn.HealthPoints;
+	this.current_health = pkmn.currentHealth;
+	this.Attack = pkmn.MoveList;
+	this.Type = pkmn.primaryType;
 	this.Level = pkmn.Level;
-	this.Exp = pkmn.Level * pkmn.Level * pkmn.Level;	//max exp
-	this.current_exp = pkmn.Exp;	//current exp
+	this.Exp = pkmn.Exp;	//max exp
+	this.current_exp = pkmn.currentEXP;	//current exp
 
 }
-let player_pokemon = new PokemonSprite(test1, sprite_CalcX(test1), sprite_CalcY(test1));	//dummy values
-let enemy_pokemon = new PokemonSprite(test2, sprite_CalcX(test2), sprite_CalcY2(test2));		//dummy values
+
+let player_pokemon = new PokemonSprite(test1);	//dummy values
+let enemy_pokemon = new PokemonSprite(test2);		//dummy values
+
 
 function sprite_CalcX(pkmn){
 	var xQuad = pkmn.PokedexID % 15;
-	if (xQuad == 0){
+	if (xQuad === 0){
 		xQuad = 15;
 	}
-	var x = 130 * (xQuad - 1) + 11;
-	return x;
+	return 130 * (xQuad - 1) + 11;
 }
 
 function sprite_CalcY(pkmn){  //165
 	var yQuad = 110;
 	if (pkmn.PokedexID % 15 > 1){
 		yQuad = 110 + (165 * Math.floor(pkmn.PokedexID /15));
-		}
-	var y = yQuad;
-	return y;
+	}
+	return yQuad;
 }
 
 function sprite_CalcY2(pkmn){  //165
 	var yQuad = 45;
 	if (pkmn.PokedexID % 15 > 1){
 		yQuad = 45 + (165 * Math.floor(pkmn.PokedexID /15));
-		}
-	var y = yQuad;
-	return y;
+	}
+	return yQuad;
 }
 
 //TODO: these values depend on what pokemon is chosen for the battle
 let player_sprite_x = player_pokemon.sprite_x;
 let player_sprite_y = player_pokemon.sprite_y;
 let enemy_sprite_x = enemy_pokemon.sprite_x;
-let enemy_sprite_y = enemy_pokemon.sprite_y;
+let enemy_sprite_y = enemy_pokemon.enemy_sprite_y;
 
 //TODO: change this to the correct background
 let bg_x = 249;
@@ -54,7 +55,11 @@ let bg_y = 6;
 
 const main_canvas = document.getElementById("main_canvas");
 const main_ctx = main_canvas.getContext("2d");
-main_canvas.width = window.innerWidth;
+if(window.innerWidth < window.innerHeight) {
+	main_canvas.width = window.innerWidth;
+}else {
+	main_canvas.width = window.innerHeight;
+}
 main_canvas.height = main_canvas.width / 1.5;
 let scalingFactor = main_canvas.width / 240;
 
@@ -80,8 +85,6 @@ battle_main_background.onload = function() {
 			draw_options_pane();
 			draw_player_pokemon();
 			draw_enemy_pokemon();
-
-
 		}
 	}
 };
@@ -176,10 +179,10 @@ function moveSelect() {
 	main_ctx.shadowOffsetX = 2;
 	main_ctx.shadowOffsetY = 2;
 	//TODO: change this to the correct pokemon
-	main_ctx.fillText(player_pokemon.Attack, 15 * scalingFactor, 133 * scalingFactor, 58 * scalingFactor);
-	main_ctx.fillText(player_pokemon.Attack, 15 * scalingFactor, 148 * scalingFactor, 58 * scalingFactor);
-	main_ctx.fillText(player_pokemon.Attack, 90 * scalingFactor, 133 * scalingFactor, 58 * scalingFactor);
-	main_ctx.fillText(player_pokemon.Attack, 90 * scalingFactor, 148 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack[0].MoveID, 15 * scalingFactor, 133 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack[1].MoveID, 15 * scalingFactor, 148 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack[2].MoveID, 90 * scalingFactor, 133 * scalingFactor, 58 * scalingFactor);
+	main_ctx.fillText(player_pokemon.Attack[3].MoveID, 90 * scalingFactor, 148 * scalingFactor, 58 * scalingFactor);
 
 	main_ctx.font = (1/20 * main_canvas.width) + "px Courier New";
 	main_ctx.fillText(player_pokemon.Type, 191 * scalingFactor, 149 * scalingFactor, 43 * scalingFactor);
@@ -215,46 +218,41 @@ addEventListener("keydown", function (e) {
 	if (key === "ArrowLeft") {
 		if (player_pokemon.current_health > 0) {
 			requestAnimationFrame(healthBar);
-			player_pokemon.current_health -= 10;
+			player_pokemon.current_health -= 1;
 		}
 	}
-});
-
 //TODO: change this so player health changes when it is damaged
-addEventListener("keydown", function (e) {
-	let key = e.key;
 	if (key === "ArrowRight") {
 		if (enemy_pokemon.current_health > 0) {
-			enemy_pokemon.current_health -= 10;
+			enemy_pokemon.current_health -= 1;
 			requestAnimationFrame(healthBar);
 		}
 	}
-});
-
 //TODO: change this so exp changes when it is gained
-addEventListener("keydown", function (e) {
-	let key = e.key;
 	if (key === "ArrowUp") {
+		player_pokemon.current_exp += 10;
 		if (player_pokemon.current_exp < player_pokemon.Exp) {
-			player_pokemon.current_exp += 10;
 			requestAnimationFrame(expBar);
-		}else{
+		} else {
 			player_pokemon.Level += 1;
 			player_pokemon.Exp = player_pokemon.Level ** 3;
 			player_pokemon.current_exp = 0;
 
 			draw_player_pokemon();
 			requestAnimationFrame(expBar);
+			PowerLeveler(player_pokemon.pokemon, 1);
+		}
+		console.log(player_pokemon.current_exp + " " + player_pokemon.Exp);
+	}
+//TODO: change this so exp changes when it is gained
+
+	if (key === "ArrowDown") {
+		if (battle_mode === "main_menu") {
+			moveSelect();
+		} else if (battle_mode === "move_select") {
+			draw_options_pane();
+			draw_enemy_pokemon();
 		}
 	}
-	console.log(player_pokemon.current_exp + " " + player_pokemon.Exp);
-});
 
-
-//TODO: change this so exp changes when it is gained
-addEventListener("keydown", function (e) {
-	let key = e.key;
-	if (key === "ArrowDown") {
-		moveSelect();
-	}
 });
