@@ -103,9 +103,9 @@ function randomInt(min, max){
 function MoveFiller(){
 	var moveSlots = new Array(4);
 	moveSlots[0] = new Move("Vine Whip", "Attack", 45, 25, "Grass", 0);
-	moveSlots[1] = new Move("Tackle", "Attack", 10, 35, "Normal", 0);  //40
-	moveSlots[2] = new Move("Water Gun", "Attack", 10, 25, "Water", 0);  //40
-	moveSlots[3] = new Move("Struggle", "Attack", 10, 1, "Normal", 0);  //50
+	moveSlots[1] = new Move("Tackle", "Attack", 40, 35, "Normal", 0);  
+	moveSlots[2] = new Move("Water Gun", "Attack", 40, 25, "Water", 0);  
+	moveSlots[3] = new Move("Struggle", "Attack", 50, 1, "Normal", 0);  
 	return moveSlots;
 	}
 
@@ -226,11 +226,13 @@ function BattleAttack(trainerMon, AIMon, selectedMove){
 	//For use in animation
 	var tMonStartHP = trainerMon.HealthPoints;
 	var aMonStartHP = AIMon.HealthPoints;
+	var level = trainerMon.Level;
 	
 	if (trainerMon.Speed > AIMon.Speed){
 		MoveUse(selectedMove, trainerMon, AIMon);
 		if (AIMon.HealthPoints <= 0){
 			console.log(trainerMon.PokemonName + " wins!");
+			trainerMon.Exp = trainerMon.Exp + ((level * level * level) / 3);
 			return 1;
 		}		
 		MoveUse(enemyMove, AIMon, trainerMon);
@@ -248,6 +250,7 @@ function BattleAttack(trainerMon, AIMon, selectedMove){
 		MoveUse(selectedMove, trainerMon, AIMon);
 		if (AIMon.HealthPoints <= 0){
 			console.log(trainerMon.PokemonName + " wins!");
+			trainerMon.Exp = trainerMon.Exp + ((level * level * level) / 3);
 			return 1;
 		}	
 	}
@@ -258,12 +261,13 @@ function BattleAttack(trainerMon, AIMon, selectedMove){
 		AIMon.HealthPoints = AIMon.HealthPoints - Math.floor(HPCalc(AIMon.Level, AIMon.Health)/16);
 	
 	if (trainerMon.HealthPoints <= 0){
-		console.log(AIM.PokemonName + " wins!");
+		console.log(AIMon.PokemonName + " wins!");
 		return 2;
 	}	
 
 	if (AIMon.HealthPoints <= 0){
 		console.log(trainerMon.PokemonName + " wins!");
+		trainerMon.Exp = trainerMon.Exp + ((level * level * level) / 3);
 		return 1;
 	}	
 	
@@ -271,7 +275,8 @@ function BattleAttack(trainerMon, AIMon, selectedMove){
 	return 0;
 }
 
-
+let test1 = new Pokemon("Bulbasaur", 1, 1, "Grass", "None", 1, 45, 49, 49, 65, 45);
+let test2 = new Pokemon("Squirtle", 2, 7, "Water", "None", 1, 44, 48, 65, 50, 43);
 //Keep persistent test code below this line
 
 function backEndTesting(){

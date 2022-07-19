@@ -1,17 +1,44 @@
 //TODO: dummy object, to be replaced with actual pokemon when intergration is complete
-function Pokemon(x, y) {
-	this.name = "Bulbasaur";
+function PokemonSprite(pkmn, x, y) {
+	this.name = pkmn.PokemonName;
 	this.sprite_x = x;
 	this.sprite_y = y;
 	this.Health = 100;
 	this.current_health = 100;
-	this.Level = 5;
-	this.Exp = 100;	//max exp
-	this.current_exp = 20;	//current exp
+	this.Level = pkmn.Level;
+	this.Exp = pkmn.Level * pkmn.Level * pkmn.Level;	//max exp
+	this.current_exp = pkmn.Exp;	//current exp
 
 }
-let player_pokemon = new Pokemon(11, 110);	//dummy values
-let enemy_pokemon = new Pokemon(661, 45);		//dummy values
+let player_pokemon = new PokemonSprite(test1, sprite_CalcX(test1), sprite_CalcY(test1));	//dummy values
+let enemy_pokemon = new PokemonSprite(test2, sprite_CalcX(test2), sprite_CalcY2(test2));		//dummy values
+
+function sprite_CalcX(pkmn){
+	var xQuad = pkmn.PokedexID % 15;
+	if (xQuad == 0){
+		xQuad = 15;
+	}
+	var x = 130 * (xQuad - 1) + 11;
+	return x;
+}
+
+function sprite_CalcY(pkmn){  //165
+	var yQuad = 110;
+	if (pkmn.PokedexID % 15 > 1){
+		yQuad = 110 + (165 * Math.floor(pkmn.PokedexID /15));
+		}
+	var y = yQuad;
+	return y;
+}
+
+function sprite_CalcY2(pkmn){  //165
+	var yQuad = 45;
+	if (pkmn.PokedexID % 15 > 1){
+		yQuad = 45 + (165 * Math.floor(pkmn.PokedexID /15));
+		}
+	var y = yQuad;
+	return y;
+}
 
 //TODO: these values depend on what pokemon is chosen for the battle
 let player_sprite_x = player_pokemon.sprite_x;
