@@ -284,17 +284,19 @@ function animateScript(event) {
 		if (speakingTo) {
 			speakingTo.facing = REVERSE[currFace];
 			state = "talking";
-			globalLine = speakingTo.dialogue[speakingTo.dialogueState];
 		}
 	} else if (event.keyCode == 32 && state == "talking") {
 		if (speakingTo.dialogueState == speakingTo.dialogue.length - 1) {
 			speakingTo.dialogueState = 0;
-			speakingTo = null;
-			state = "playing";
-			location.replace("./combat.html")
+			if (speakingTo.name == "Wealthy" || speakingTo.name == "Leader" || speakingTo.name == "Lady") {
+				state = "playing";
+				location.replace("./combat.html")
+			} else {
+				speakingTo = null;
+				state = "playing";
+			}
 		} else {
 			speakingTo.dialogueState++;
-			globalLine = speakingTo.dialogue[speakingTo.dialogueState];
 		}
 	}
 
